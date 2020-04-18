@@ -51,6 +51,9 @@ public class CustomerRepository implements ICustomerRepository {
 	@Override
 	public void UpdateCustomer(Customer customer) {
 		manager.merge(customer);
-		
+	}
+	
+	public void DeleteCustomer(Customer customer) {
+		manager.remove(customer);
 	}
 }

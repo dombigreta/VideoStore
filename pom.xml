@@ -17,6 +17,7 @@
 			<groupId>com.github.adminfaces</groupId>
 			<artifactId>admin-theme</artifactId>
 			<version>1.0.0-RC21</version>
+			 <classifier>without-bootstrap</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec</groupId>

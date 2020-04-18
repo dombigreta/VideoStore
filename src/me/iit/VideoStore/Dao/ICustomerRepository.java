@@ -10,4 +10,5 @@ public interface ICustomerRepository {
 	Customer GetCustomerById(int id);
 	List<Object> GetCustomerLoansByCustomerId(int id);
 	void UpdateCustomer(Customer customer);
+	void DeleteCustomer(Customer customer);
 }

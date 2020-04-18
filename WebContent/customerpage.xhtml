@@ -1,8 +1,75 @@
-<ui:composition 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h2>Customer page</h2>
-    <p>Include page blah blah lorem ipsum</p>
-</ui:composition>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Video Rental Shop</title>
+    </h:head>
+    <h:body>
+    <ui:include src="/templates/header.xhtml"/>
+        <b:container>
+            <b:row>
+              <b:column>
+                   <h1>Customers</h1>
+		  <h:form>
+			  <b:dataTable value="#{customerController.customers}"
+			               var="customer"
+			               border="false"
+			               searching="false"
+			               paginated="false">
+			    	<b:dataTableColumn value="#{customer.firstName}" label="Firstname"/>
+			    	<b:dataTableColumn value="#{customer.lastName}" label="Lastname"/>
+			    	<b:dataTableColumn value="#{customer.email}"  label="Email"/>
+			    	<b:dataTableColumn value="#{customer.birthDate}"  label="Birth date"/>
+			  		<b:dataTableColumn value="#{customer.genderTypeId}"  label="Gender"/>
+			  		<b:dataTableColumn label="">
+      					<b:button look="danger" icon="trash"/>
+    				</b:dataTableColumn>
+			  </b:dataTable>
+		</h:form>
+		<br/>
+		<div class="">
+			<button 	class="btn btn-primary btn-sm"
+						data-target="#customermodal" 
+						data-toggle="modal">
+			add new customer
+			</button>
+		</div>
+           </b:column>
+            </b:row>
+        </b:container>
+        
+<!-- customer form modal -->
+ <b:modal id="customermodal" title="Add Customer">
+		 <b:alert severity="info">
+		 	<strong>Info</strong>
+		 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vestibulum velit ac justo semper, 
+		 et fermentum justo sollicitudin.
+		 </b:alert>
+		<!-- fields -->
+				<b:form horizontal="true">
+		  		<b:inputText placeholder="First name" required="true" label="First name:" colMd="9" labelColMd="3"/>
+		  		<b:inputText placeholder="Last name" required="true" label="Last name:" colMd="9" labelColMd="3"/>
+		  		<b:inputText placeholder="Email" required="true" label="Email:" colMd="9" labelColMd="3"/>
+		  		  <b:dateTimePicker 
+		  		  colMd="9"
+		  		  labelColMd="3"
+		  		  placeholder="Birth date"
+		  		  label="Birth date:"/>
+		  	<p>Gender</p>
+			  <b:panelGrid size="xs" columns="6">
+			    <b:radiobutton value="#{customer.genderTypeId}" itemLabel="Male" itemValue="7" required="true" />
+			    <b:radiobutton value="#{customer.genderTypeId}" itemLabel="Female" itemValue="8" />
+			    <b:radiobutton value="#{customer.genderTypeId}" itemLabel="Not specified" itemValue="9" disabled="true"/>
+			  </b:panelGrid>
+		</b:form>
+	<f:facet name="footer">	 
+    <b:button value="Close" dismiss="modal" />
+    <b:button value="Ok" look="primary" dismiss="modal" />
+  </f:facet>
+</b:modal>
+<!-- customer form modal -->
+    </h:body>
+</html>

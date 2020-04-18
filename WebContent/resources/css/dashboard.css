@@ -95,4 +95,8 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
- 
+
+.container-style{
+	margin-top:150px;
+	text-align:justify;
+}
