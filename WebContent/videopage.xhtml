@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Video Rental Shop</title>
+    </h:head>
+    <h:body>
+    <ui:include src="/templates/header.xhtml"/>
+    <b:container>
+            <b:row>
+              <b:column>
+                   <h1>Customers</h1>
+		  <h:form>
+			  <h:dataTable value="#{videoController.videos}"
+			               var="video"
+			               class="table table-hover table-bordered table-sm">
+			               
+			        <h:column>
+    				<f:facet name="header">Title</f:facet>
+    				#{video.title}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Description</f:facet>
+    				#{video.description}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Relase date</f:facet>
+    				#{video.releaseDate}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Director</f:facet>
+    				#{video.director}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Genre</f:facet>
+    				#{video.genreTypeId}
+    				</h:column>   
+    				
+    				 <h:column>
+    				<f:facet name="header">Avaiable Count</f:facet>
+    				#{video.avaiableCount}
+    				</h:column> 
+    				
+    				 <h:column>
+    				<f:facet name="header">Rented Count</f:facet>
+    				#{video.rentedCount}
+    				</h:column> 
+    				
+    				
+			  </h:dataTable>
+		</h:form>
+		<br/>
+		<div class="">
+			<button 	class="btn btn-primary btn-sm"
+						data-target="#customermodal" 
+						data-toggle="modal">
+			add new customer
+			</button>
+		</div>
+           </b:column>
+            </b:row>
+        </b:container>
+    </h:body>
+</html>

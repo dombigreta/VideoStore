@@ -1,33 +1,22 @@
-package me.iit.VideoStore.Models;
+package me.iit.VideoStore.Services.ManagedBeans;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-@Entity
-public class Video {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
-	private int Id;
-	@Column(name="title")
-	private String Title;
-	@Column(name="description")
-	private String Description;
-	@Column(name="director")
-	private String Director;
-	@Column(name="genre_type_id")
-	private int GenreTypeId;
-	@Column(name="release_date")
-	private Date ReleaseDate;
-	@Column(name="avaiable_count")
-	private int AvaiableCount;
-	@Column(name="RentedCount")
-	private int RentedCount;
+@ManagedBean(name="video")
+@RequestScoped
+public class VideoBean {
+	
+	int Id;
+	String Title;
+	String Description;
+	String Director;
+	int GenreTypeId;
+	Date ReleaseDate;
+	int AvaiableCount;
+	int RentedCount;
 	
 	public int getId() {
 		return Id;
@@ -77,5 +66,6 @@ public class Video {
 	public void setRentedCount(int rentedCount) {
 		RentedCount = rentedCount;
 	}
+	
 	
 }

@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 
 import me.iit.VideoStore.Services.ICustomerService;
@@ -27,6 +28,12 @@ public class CustomerController {
 	public List<CustomerBean> getCustomers(){
 		customers = service.GetAllCustomers();
 		return customers;
+	}
+	
+	public String DeleteCustomer(int id) {
+		System.out.println(id);
+		service.DeleteCustomer(id);
+		return "/customerpage.xhtml?faces-redirect=true";
 	}
 	
 }

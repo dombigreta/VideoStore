@@ -10,20 +10,11 @@ import javax.faces.event.ActionEvent;
 
 @ManagedBean
 @RequestScoped
-public class NavigationController implements Serializable {
+public class NavigationController {
 	
-	private String PageId = "homepage";
-	public void AttributeListener(ActionEvent event) {
-		PageId = (String)event.getComponent().getAttributes().get("id");
-		System.out.println(PageId);
-	}
-	
-	public String GetPage() {
-		return PageId;
-	}
-	
-	public void SetPage() {
-		PageId = "customerpage";
+	public String getPage(String page) {
+		System.out.println(page);
+		return page + "page";
 	}
 	
 }

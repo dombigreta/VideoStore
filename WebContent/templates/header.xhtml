@@ -11,9 +11,11 @@
       <span class="fa fa-chevron-right"></span>
   </f:facet>
   <b:navbarLinks>
-    <b:navLink value="Home" href="index.xhtml"></b:navLink>
-    <b:navLink value="Customers" href="customerpage.xhtml"></b:navLink>
-    <b:navLink value="DVD collection" href="dvdpage.xhtml"></b:navLink>
+    <h:form>
+    	<b:navCommandLink value="Home" action="#{navigationController.getPage('home')}"></b:navCommandLink>
+    	<b:navCommandLink value="Customers" action="#{navigationController.getPage('customer')}"></b:navCommandLink>
+    	<b:navCommandLink value="DVD collection" action="#{navigationController.getPage('video')}"></b:navCommandLink>
+    </h:form>
   </b:navbarLinks>
 </b:navBar> 
 </ui:composition>

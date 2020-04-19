@@ -53,7 +53,8 @@ public class CustomerRepository implements ICustomerRepository {
 		manager.merge(customer);
 	}
 	
-	public void DeleteCustomer(Customer customer) {
+	public void DeleteCustomer(int id) {
+		Customer customer = GetCustomerById(id);
 		manager.remove(customer);
 	}
 }

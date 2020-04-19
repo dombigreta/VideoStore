@@ -9,11 +9,20 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class CustomerBean {
 	
+	int Id;
 	String FirstName;
 	String LastName;
 	String Email;
 	Date BirthDate;
 	int GenderTypeId;
+	
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
 	
 	public String getFirstName() {
 		return FirstName;
@@ -54,5 +63,4 @@ public class CustomerBean {
 	public void setGenderTypeId(int genderTypeId) {
 		GenderTypeId = genderTypeId;
 	}
-		
 }

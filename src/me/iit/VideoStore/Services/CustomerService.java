@@ -42,6 +42,7 @@ public class CustomerService implements ICustomerService {
 		List<Customer> customerRecords =  repository.GetAllCustomers();
 		return customerRecords.stream().map(c -> {
 			CustomerBean customer = new CustomerBean();
+			customer.setId(c.getId());
 			customer.setFirstName(c.getFirstName());
 			customer.setLastName(c.getLastName());
 			customer.setEmail(c.getEmail());
@@ -64,8 +65,7 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public void DeleteCustomer(int id) {
-		Customer customerRecord = repository.GetCustomerById(id);
-		repository.DeleteCustomer(customerRecord);
+		repository.DeleteCustomer(id);
 		
 	}
 

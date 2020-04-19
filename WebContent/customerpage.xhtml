@@ -14,20 +14,37 @@
               <b:column>
                    <h1>Customers</h1>
 		  <h:form>
-			  <b:dataTable value="#{customerController.customers}"
+			  <h:dataTable value="#{customerController.customers}"
 			               var="customer"
-			               border="false"
-			               searching="false"
-			               paginated="false">
-			    	<b:dataTableColumn value="#{customer.firstName}" label="Firstname"/>
-			    	<b:dataTableColumn value="#{customer.lastName}" label="Lastname"/>
-			    	<b:dataTableColumn value="#{customer.email}"  label="Email"/>
-			    	<b:dataTableColumn value="#{customer.birthDate}"  label="Birth date"/>
-			  		<b:dataTableColumn value="#{customer.genderTypeId}"  label="Gender"/>
-			  		<b:dataTableColumn label="">
-      					<b:button look="danger" icon="trash"/>
-    				</b:dataTableColumn>
-			  </b:dataTable>
+			               class="table table-hover table-bordered table-sm">
+			               
+			        <h:column>
+    				<f:facet name="header">Name</f:facet>
+    				#{customer.firstName} #{customer.lastName}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Email</f:facet>
+    				#{customer.email}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Birth date</f:facet>
+    				#{customer.birthDate}
+    				</h:column>
+    				
+    				 <h:column>
+    				<f:facet name="header">Gender</f:facet>
+    				#{customer.genderTypeId}
+    				</h:column>  
+    				<h:column>
+      					<b:button
+							outcome="#{customerController.DeleteCustomer(customer.id)}" 
+							look="danger"
+							icon="trash">
+							</b:button>
+    				</h:column>
+			  </h:dataTable>
 		</h:form>
 		<br/>
 		<div class="">
